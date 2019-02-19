@@ -16,8 +16,9 @@ def process_files(folder, files):
     user_stats_parser = UserStatsParser()
     file_template = "%s/messages%s.html"
     user_stats_parser.process_file(file_template % (folder, ''))
-    # TODO: iterate over: range(1, len(files))
-
+    for i in range(2, len(files) + 1):
+        user_stats_parser.process_file(file_template % (folder, i))
+    print("Parsed %s messages" % len(user_stats_parser.messages))
 
 def parse_args():
     parser = argparse.ArgumentParser()
